@@ -9,6 +9,12 @@ interface SidebarItemProps {
     href: string;
 }
 
+/**
+ * 
+ * @param 
+ * @returns
+ * @dev Represent the item in sidebar, including "Home", "Search" 
+ */
 export function SidebarItem ({
     icon: Icon,
     label,
@@ -29,14 +35,15 @@ export function SidebarItem ({
             font-medium
             hover:text-white
             transition
-            text-neutral-400
+            text-neutral-600
             py-1
             `,
             active && "text-white"        
         )}
-
+        
         >
         <Icon size={26}/>
+        <p className="truncate w-full">{label}</p>
         </Link>
     )
 }

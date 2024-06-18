@@ -14,7 +14,7 @@ export function Box({
 } : BoxProps) {
     return (
         <div className={twMerge(`
-            bg-blue-300
+            bg-neutral-900
             rounded-lg
             h-fit
             w-full
