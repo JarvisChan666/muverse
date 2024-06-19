@@ -18,24 +18,26 @@ export function Header({ children, className }: HeaderProps) {
   const handleLogout = () => {};
 
   return (
-      <div
-        className={twMerge(
-          `
+    <div
+      className={twMerge(
+        `
             h-fit
             bg-gradient-to-b
             from-pink-400
             p-6
             `,
-          className
-        )}
-      >
-        <div className="
+        className
+      )}
+    >
+      <div
+        className="
         w-full
         mb-4
         flex
         items-center
         justify-between
-        ">
+        "
+      >
         {/* we hidden sidebar in mobile view  */}
         <div
           className="
@@ -76,7 +78,8 @@ export function Header({ children, className }: HeaderProps) {
         </div>
         {/* This 2 button is for mobile, we hidden the mid view and only visible for mobile*/}
         <div className="flex md:hidden gap-x-2 items-center">
-            <button className="
+          <button
+            className="
             rounded-full
             p-2
             bg-white
@@ -85,10 +88,12 @@ export function Header({ children, className }: HeaderProps) {
             justify-center
             hover:opacity-75
             transition
-            ">
-                <HiHome className="text-black" size={20}/>
-            </button>
-            <button className="
+            "
+          >
+            <HiHome className="text-black" size={20} />
+          </button>
+          <button
+            className="
             rounded-full
             p-2
             bg-white
@@ -97,44 +102,49 @@ export function Header({ children, className }: HeaderProps) {
             justify-center
             hover:opacity-75
             transition
-            ">
-                <BiSearch className="text-black" size={20}/>
-            </button>
+            "
+          >
+            <BiSearch className="text-black" size={20} />
+          </button>
         </div>
-        <div className="
+        <div
+          className="
         flex
         justify-between
         items-center
         gap-x-4
-        ">
-            <>
-                <div>
-                    <Button
-                    onClick={()=>{}}
-                    className="
+        "
+        >
+          <>
+            <div>
+              <Button
+                onClick={() => {}}
+                className="
                     bg-transparent
                     text-neutral-300
                     font-medium
                     "
-                    >
-                        Sign Up
-                    </Button>
-                </div>
-                <div>
-                    <Button
-                    onClick={()=>{}}
-                    className="
+              >
+                Sign Up
+              </Button>
+            </div>
+            <div>
+              <Button
+                onClick={() => {}}
+                className="
                     bg-white
                     px-6
                     py-2
                     "
-                    >
-                        Log in
-                    </Button>
-                </div>
-            </>
-        </div>
+              >
+                Log in
+              </Button>
+            </div>
+          </>
         </div>
       </div>
+      {/* Anything wrapped in Header will display in here */}
+      {children}
+    </div>
   );
 }
