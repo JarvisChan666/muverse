@@ -5,6 +5,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { SupabaseProvider } from "@/providers/SupabaseProvider";
 import { UserProvider } from "@/providers/UserProvider";
 import { ModalProvider } from "@/providers/ModalProvider";
+import { ToasterProvider } from "@/providers/ToasterProvider";
 
 const font = Figtree({ subsets: ["latin"] });
 
@@ -29,14 +30,15 @@ export default function RootLayout({
       根目录的 page.tsx 文件：当你访问根目录（例如 /）时，pages/index.tsx 文件的内容会作为 children 传递给 RootLayout，
       然后再传递给 Sidebar。
       其他页面文件：当你访问其他路由（例如 /about），pages/about.tsx 文件的内容会作为 children 传递给 RootLayout，然后再传递给 Sidebar。 */}
+        <ToasterProvider />
         <SupabaseProvider>
-          {/* <UserProvider> */}
+          <UserProvider>
             <ModalProvider />
             <Sidebar>
               {/* page.tsx will pass in as children */}
               {children}
             </Sidebar>
-          {/* </UserProvider> */}
+          </UserProvider>
         </SupabaseProvider>
       </body>
     </html>
