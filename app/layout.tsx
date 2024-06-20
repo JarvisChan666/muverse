@@ -6,6 +6,7 @@ import { SupabaseProvider } from "@/providers/SupabaseProvider";
 import { UserProvider } from "@/providers/UserProvider";
 import { ModalProvider } from "@/providers/ModalProvider";
 import { ToasterProvider } from "@/providers/ToasterProvider";
+import getSongsByUserId from "@/actions/getSongsByUserId";
 
 const font = Figtree({ subsets: ["latin"] });
 
@@ -14,12 +15,16 @@ export const metadata: Metadata = {
   description: "Listen your favorite music everywhere!",
 };
 
-export default function RootLayout({
+// we don't want it to cache,we will update everytime 
+export const revaildate = 0;
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  console.log("Children:", children); // 添加日志输出
+  const userSongs = await getSongsByUserId();
+
 
   return (
     <html lang="en">
@@ -34,7 +39,7 @@ export default function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider />
-            <Sidebar>
+            <Sidebar songs={userSongs}>
               {/* page.tsx will pass in as children */}
               {children}
             </Sidebar>
