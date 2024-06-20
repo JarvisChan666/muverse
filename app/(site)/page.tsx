@@ -1,8 +1,14 @@
+import getSongs from "@/actions/getSongs";
 import { Header } from "@/components/Header";
 import { ListItem } from "@/components/ListItem";
 import Image from "next/image";
+import { PageContent } from "./_components/PageContent";
 
-export default function Home() {
+export const revalidate = 0;
+
+export default async function Home() {
+  const songs = await getSongs();
+
   return (
    <div className="
    bg-neutral-900
@@ -44,11 +50,7 @@ export default function Home() {
           Newest Songs
         </h1>
       </div>
-      <div>
-        List of songs
-      </div>
-
-
+      <PageContent songs={songs}/>
      </div>
    </div>
   );
