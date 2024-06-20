@@ -8,7 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      
+      colors: {
+        sidebarColor: 'rgb(27,47,85)', // 自定义颜色
+        boxColor: 'rgb(159,184,210)',
+      },
     },
   },
   plugins: [],
