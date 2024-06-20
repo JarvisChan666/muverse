@@ -2,6 +2,9 @@
 
 import { MediaItem } from "@/components/MediaItem";
 
+import { LikeButton } from "@/components/LikeButton";
+import { Song } from "@/types";
+
 interface SearchContentProps {
   songs: Song[];
 }
@@ -33,7 +36,7 @@ export function SearchContent({ songs }: SearchContentProps) {
             data={song}
             />
           </div>
-          {/* {add like button} */}
+          <LikeButton songId={song.id}/>
         </div>
       ))}
     </div>

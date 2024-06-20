@@ -66,7 +66,7 @@ export function ListItem({
             flex
             items-center
             justify-center
-            bg-green-500
+            bg-pink-600
             p-4
             drop-shadow-md
             right-5
