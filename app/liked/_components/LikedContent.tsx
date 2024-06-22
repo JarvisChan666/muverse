@@ -6,6 +6,7 @@ import { useUser } from "@/hooks/useUser";
 import { Song } from "@/types";
 import { MediaItem } from "@/components/MediaItem";
 import { LikeButton } from "@/components/LikeButton";
+import UseOnPlay from "@/hooks/useOnPlay";
 
 interface LikedContentPtops {
   songs: Song[];
@@ -14,6 +15,7 @@ interface LikedContentPtops {
 export function LikedContent({ songs }: LikedContentPtops) {
   const router = useRouter();
   const { isLoading, user } = useUser();
+  const onPlay = UseOnPlay(songs);
 
   // If you logout, you will redirect to the home page
   useEffect(() => {
@@ -43,7 +45,7 @@ export function LikedContent({ songs }: LikedContentPtops) {
       {songs.map((song) => (
         <div key={song.id} className="flex items-center gap-x-4 w-full">
           <div className="flex-1">
-            <MediaItem onClick={() => {}} data={song} />
+            <MediaItem onClick={(id: string) => onPlay(id)} data={song} />
           </div>
           <LikeButton songId={song.id}/>
         </div>

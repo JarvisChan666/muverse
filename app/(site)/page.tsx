@@ -29,6 +29,7 @@ export default async function Home() {
           Welcome Back
         </h1> 
         {/* small device 2 columns, and so on */}
+        {/* grid-template-columns: repeat(1, minmax(0, 1fr)); */}
         <div className="
           grid
           grid-cols-1

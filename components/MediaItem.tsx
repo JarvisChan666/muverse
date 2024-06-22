@@ -4,7 +4,7 @@ import Image from "next/image";
 
 interface MediaItemProps {
   data: Song;
-  onClick?: (id: string) => void;
+  onClick: (id: string) => void;
 }
 
 export function MediaItem({ data, onClick }: MediaItemProps) {
@@ -18,7 +18,9 @@ export function MediaItem({ data, onClick }: MediaItemProps) {
     // Default turn on player
   }
     return (
-    <div className="
+    <div 
+    onClick={handleClick}
+    className="
     flex
     items-center
     gap-x-3
