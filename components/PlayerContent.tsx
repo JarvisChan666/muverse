@@ -2,6 +2,7 @@
 import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
+// import {useSound} from "use-sound";s
 import useSound from "use-sound";
 
 import usePlayer from "@/actions/usePlayer";
@@ -102,7 +103,9 @@ export function PlayerContent({ song, songUrl }: PlayerContentProps) {
         "
       >
         <div className="flex items-center gap-x-4">
-          <MediaItem data={song} />
+          <MediaItem data={song} onClick={function (id: string): void {
+                      throw new Error("Function not implemented.");
+                  } } />
           <LikeButton songId={song.id} />
         </div>
       </div>
