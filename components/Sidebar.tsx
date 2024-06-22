@@ -8,6 +8,8 @@ import { Box } from "./Box";
 import { SidebarItem } from "./SidebarItem";
 import { Library } from "./Library";
 import { Song } from "@/types";
+import usePlayer from "@/actions/usePlayer";
+import { twMerge } from "tailwind-merge";
 
 // children can be server component, but this layout should use client
 // because we use many react hooks
@@ -19,7 +21,7 @@ interface SidebarProps {
 
 export function Sidebar({ children, songs }: SidebarProps) {
   const pathname = usePathname();
-
+  const player = usePlayer();
   const routes = useMemo(
     () => [
       {
@@ -43,7 +45,12 @@ export function Sidebar({ children, songs }: SidebarProps) {
   return (
     //
     //<Sidebar>{children}<Sidebar/> then element wrapped by sidebar will pass in here
-    <div className="flex h-full">
+    <div className={twMerge(`
+      flex
+      h-full
+      `,
+      player.activeId && "h-[calc(100%-80px)]"
+      )}>
       <div
         className="
             hidden
