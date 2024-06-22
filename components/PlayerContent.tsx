@@ -103,7 +103,9 @@ export function PlayerContent({ song, songUrl }: PlayerContentProps) {
         "
       >
         <div className="flex items-center gap-x-4">
-          <MediaItem data={song} />
+          <MediaItem data={song} onClick={function (id: string): void {
+                      throw new Error("Function not implemented.");
+                  } } />
           <LikeButton songId={song.id} />
         </div>
       </div>
