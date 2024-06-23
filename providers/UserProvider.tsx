@@ -6,7 +6,6 @@ interface UserProviderProps {
 
 export const UserProvider = ({children}: UserProviderProps) => {
     return (
-        // TODO :bugs here
         <MyUserContextProvider>
             {children}
         </MyUserContextProvider>
