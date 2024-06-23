@@ -13,6 +13,7 @@ interface SupabaseProviderProps {
 export function SupabaseProvider({
     children,
 } : SupabaseProviderProps) {
+    // Only render once in the life cycle 
     const [supabaseClient] = useState(() => createClientComponentClient<Database>());
     
     return (

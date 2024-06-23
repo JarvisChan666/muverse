@@ -82,6 +82,11 @@ export const MyUserContextProvider = (props: Props) => {
   return <UserContext.Provider value={value} {...props} />;
 }
 
+/**
+ * @dev UserContext must be used within <UserContext.Provider>, which is our MyUserContextProvider
+ * @returns 
+ * 
+ */
 export function useUser() {
   const context = useContext(UserContext);
   if (context === undefined) {
