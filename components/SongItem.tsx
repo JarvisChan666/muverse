@@ -52,7 +52,7 @@ export function SongItem({ data, onClick }: SongItemProps) {
             />
         </div>
         <div className="flex flex-col items-start w-full pt-4 gap-y-1">
-        <p className="font-semibold truncate w-full">
+        <p className="font-semibold truncate w-full text-blue-500">
             {data.title}
         </p>
         <p className="
