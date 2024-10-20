@@ -3,6 +3,7 @@ import { Modal } from "@/components/modal";
 import Input from "@/components/Input";
 import { Button } from "@/components/Button";
 import Image from "next/image";
+import { Tooltip } from "@/components/Tooltip"; // Import the Tooltip
 
 interface UserProfileModalProps {
     isOpen: boolean;
@@ -13,7 +14,7 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
     const [formData, setFormData] = useState({
         name: "Jelly Chen",
         email: "jellychen@birthday.com",
-        birthday: "2022-11-09",
+        birthday: "2002-11-09",
         favoriteIdol: "Krystal Jung",
         height: "167 cm",
         weight: "45 kg",
@@ -30,13 +31,6 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
         }
     }, []);
 
-    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.id]: e.target.value,
-    //     });
-    // };
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value, files } = e.target;
         setFormData({
@@ -45,14 +39,8 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
         });
     };
 
-    // const handleSubmit = () => {
-    //     // Handle form submission (e.g., update user profile)
-    //     localStorage.setItem("userProfile", JSON.stringify(formData));
-    //     console.log(formData);
-    //     onClose();
-    // };
     const handleSubmit = () => {
-        const formDataCopy = { ...formData, avatar: null }; // Don't store file in localStorage
+        const formDataCopy = { ...formData, avatar: null };
         localStorage.setItem("userProfile", JSON.stringify(formDataCopy));
         console.log(formData);
         onClose();
@@ -87,25 +75,78 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
                         accept="image/*"
                     />
                 </div>
-                <Input
-                    id="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Name"
-                />
-                <Input
-                    id="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                />
-                <Input id="birthday" value={formData.birthday} onChange={handleChange} placeholder="Birthday" />
-                <Input id="favoriteIdol" value={formData.favoriteIdol} onChange={handleChange} placeholder="Favorite Idol" />
-                <Input id="height" value={formData.height} onChange={handleChange} placeholder="Height" />
-                <Input id="weight" value={formData.weight} onChange={handleChange} placeholder="Weight" />
-                <Input id="personality" value={formData.personality} onChange={handleChange} placeholder="Personality" />
-                <Input id="appearanceLevel" value={formData.appearanceLevel} onChange={handleChange} placeholder="appearanceLevel" />
-                <Input id="dietaryRestrictions" value={formData.dietaryRestrictions} onChange={handleChange} placeholder="Dietary Restrictions" />
+                <Tooltip text="Enter your full name">
+                    <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Name"
+                    />
+                </Tooltip>
+                <Tooltip text="Enter your email address">
+                    <Input
+                        id="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Email"
+                    />
+                </Tooltip>
+                <Tooltip text="Enter your birthday date">
+                    <Input
+                        id="birthday"
+                        value={formData.birthday}
+                        onChange={handleChange}
+                        placeholder="Birthday"
+                    />
+                </Tooltip>
+                <Tooltip text="Enter your favorite idol's name">
+                    <Input
+                        id="favoriteIdol"
+                        value={formData.favoriteIdol}
+                        onChange={handleChange}
+                        placeholder="Favorite Idol"
+                    />
+                </Tooltip>
+                <Tooltip text="Enter your height in cm">
+                    <Input
+                        id="height"
+                        value={formData.height}
+                        onChange={handleChange}
+                        placeholder="Height"
+                    />
+                </Tooltip>
+                <Tooltip text="Enter your weight in kg">
+                    <Input
+                        id="weight"
+                        value={formData.weight}
+                        onChange={handleChange}
+                        placeholder="Weight"
+                    />
+                </Tooltip>
+                <Tooltip text="Describe your personality traits">
+                    <Input
+                        id="personality"
+                        value={formData.personality}
+                        onChange={handleChange}
+                        placeholder="Personality"
+                    />
+                </Tooltip>
+                <Tooltip text="Rate your appearance level (e.g., S Class)">
+                    <Input
+                        id="appearanceLevel"
+                        value={formData.appearanceLevel}
+                        onChange={handleChange}
+                        placeholder="Appearance Level"
+                    />
+                </Tooltip>
+                <Tooltip text="Specify any dietary restrictions">
+                    <Input
+                        id="dietaryRestrictions"
+                        value={formData.dietaryRestrictions}
+                        onChange={handleChange}
+                        placeholder="Dietary Restrictions"
+                    />
+                </Tooltip>
                 <Button onClick={handleSubmit} className="bg-blue-500">
                     Save
                 </Button>
