@@ -2,3 +2,5 @@
 Keyboard Shorcut:
 Ctrl + alt + Z emmet balance outward
 TODO: refactor the folder and the code
+
+ANALYZE=true yarn build
