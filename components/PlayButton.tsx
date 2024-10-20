@@ -9,7 +9,7 @@ return (
     rounded-full
     flex
     items-center
-    bg-pink-400
+    bg-sky-400
     p-4
     drop-shadow-md
     translate

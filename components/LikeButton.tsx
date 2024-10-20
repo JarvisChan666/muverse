@@ -86,7 +86,7 @@ export function LikeButton({ songId }: LikeButtonProps) {
     transition
     "
     >
-      <Icon color={isLiked ? "#f171b4" : "white"} size={25} />
+      <Icon color={isLiked ? "#83cbff" : "white"} size={25} />
     </button>
   );
 }

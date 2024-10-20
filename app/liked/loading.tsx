@@ -8,7 +8,7 @@ export default function Loading() {
 return (
 
     <Box className="h-full flex items-center justify-center">
-        <BounceLoader color="#f171b4" size={40}/>
+        <BounceLoader color="#83cbff" size={40}/>
     </Box>
 )
 }
