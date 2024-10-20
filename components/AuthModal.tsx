@@ -34,7 +34,7 @@ export function AuthModal() {
 
   return (
     <Modal
-      title="Welcome back"
+      title="Happy birthday to Jelly Chen! ! !"
       description="Login to your acocunt"
       isOpen={isOpen}
       onChange={onChange}

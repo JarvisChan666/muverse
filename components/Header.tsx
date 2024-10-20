@@ -143,7 +143,7 @@ export function Header({ children, className }: HeaderProps) {
                 Logout
               </Button>
               <Button 
-              onClick={() => router.push('/accoutn')}
+              onClick={() => router.push('/')}
               className="bg-white"
               >
                 <FaUserAlt />
