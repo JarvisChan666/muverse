@@ -71,7 +71,7 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
                         src={
                             formData.avatar
                                 ? URL.createObjectURL(formData.avatar)
-                                : "/image.jpg"
+                                : "/image.png"
                         }
                         alt="Avatar"
                         className="w-full h-full object-cover rounded-full"
