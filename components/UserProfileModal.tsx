@@ -53,7 +53,7 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
             title="Jelly's Profile"
             description="Jelly, here is your profile!"
         >
-            <div className="flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-4 bg-sky-100 p-6 rounded-lg">
                 <div className="relative w-24 h-24">
                     <Image
                         src={
