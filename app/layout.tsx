@@ -12,8 +12,8 @@ import { Player } from "@/components/Player";
 const font = Figtree({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Muverse",
-  description: "Listen your favorite music everywhere!",
+  title: "Jelly Chen's Birthday",
+  description: "Always love Jelly~",
 };
 
 // we don't want it to cache,we will update everytime 
