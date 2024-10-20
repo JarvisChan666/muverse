@@ -148,8 +148,9 @@ export function Header({ children, className }: HeaderProps) {
               <Button onClick={handleLogout} className="bg-white px-6 py-2">
                 Logout
               </Button>
+
               <Button
-                onClick={() => router.push('/')}
+                onClick={toggleProfileModal}
                 className="bg-white"
               >
                 <FaUserAlt />
@@ -158,6 +159,16 @@ export function Header({ children, className }: HeaderProps) {
                 isOpen={isProfileModalOpen}
                 onClose={toggleProfileModal}
               />
+              {/* <Button
+                onClick={() => router.push('/')}
+                className="bg-white"
+              >
+                <FaUserAlt />
+              </Button>
+              <UserProfileModal
+                isOpen={isProfileModalOpen}
+                onClose={toggleProfileModal}
+              /> */}
             </div>
           ) : (
             <>
