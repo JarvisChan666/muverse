@@ -49,12 +49,16 @@ export function Header({ children, className }: HeaderProps) {
       className={twMerge(
         `
             h-fit
-            bg-gradient-to-b
-            from-sky-400
+            bg-cover
+            bg-center
             p-6
             `,
         className
       )}
+      style={{
+        backgroundImage: "url('/background.jpg')",
+        backgroundSize: "contain"  // 改为 'contain' 以查看完整图像
+      }}
     >
       <div
         className="
