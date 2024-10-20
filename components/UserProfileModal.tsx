@@ -76,7 +76,7 @@ export function UserProfileModal({ isOpen, onClose }: UserProfileModalProps) {
                         alt="Avatar"
                         className="w-full h-full object-cover rounded-full"
                         onError={(event) => {
-                            event.currentTarget.src = "/default-avatar.jpg";
+                            event.currentTarget.src = "/image.png";
                         }}
                     />
                     <Input
