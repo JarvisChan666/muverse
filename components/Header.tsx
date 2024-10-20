@@ -1,6 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { UserProfileModal } from "./UserProfileModal";
 import { twMerge } from "tailwind-merge";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { HiHome } from "react-icons/hi";
@@ -21,12 +23,13 @@ interface HeaderProps {
 export function Header({ children, className }: HeaderProps) {
   const authModal = useAuthModal();
   const router = useRouter();
+  const [isProfileModalOpen, setProfileModalOpen] = useState(false);
 
   const supabaseClient = useSupabaseClient();
-  const { user} = useUser();
+  const { user } = useUser();
 
   const handleLogout = async () => {
-    const {error} = await supabaseClient.auth.signOut();
+    const { error } = await supabaseClient.auth.signOut();
 
     // Reset any playing songs
     router.refresh();
@@ -36,6 +39,9 @@ export function Header({ children, className }: HeaderProps) {
     } else {
       toast.success('Logged out!');
     }
+  };
+  const toggleProfileModal = () => {
+    setProfileModalOpen(!isProfileModalOpen);
   };
 
   return (
@@ -142,40 +148,44 @@ export function Header({ children, className }: HeaderProps) {
               <Button onClick={handleLogout} className="bg-white px-6 py-2">
                 Logout
               </Button>
-              <Button 
-              onClick={() => router.push('/accoutn')}
-              className="bg-white"
+              <Button
+                onClick={() => router.push('/')}
+                className="bg-white"
               >
                 <FaUserAlt />
               </Button>
+              <UserProfileModal
+                isOpen={isProfileModalOpen}
+                onClose={toggleProfileModal}
+              />
             </div>
           ) : (
-          <>
-            <div>
-              <Button
-                onClick={authModal.onOpen}
-                className="
+            <>
+              <div>
+                <Button
+                  onClick={authModal.onOpen}
+                  className="
                     bg-transparent
                     text-neutral-300
                     font-medium
                     "
-              >
-                Sign Up
-              </Button>
-            </div>
-            <div>
-              <Button
-                onClick={authModal.onOpen}
-                className="
+                >
+                  Sign Up
+                </Button>
+              </div>
+              <div>
+                <Button
+                  onClick={authModal.onOpen}
+                  className="
                     bg-white
                     px-6
                     py-2
                     "
-              >
-                Log in
-              </Button>
-            </div>
-          </>
+                >
+                  Log in
+                </Button>
+              </div>
+            </>
           )}
         </div>
       </div>

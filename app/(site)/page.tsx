@@ -26,7 +26,7 @@ export default async function Home() {
           text-3xl
           font-semibold
         ">
-          Welcome Back
+          Happy birthday to Jelly Chen! ! !
         </h1> 
         {/* small device 2 columns, and so on */}
         {/* grid-template-columns: repeat(1, minmax(0, 1fr)); */}
