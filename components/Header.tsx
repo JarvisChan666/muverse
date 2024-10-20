@@ -50,7 +50,7 @@ export function Header({ children, className }: HeaderProps) {
         `
             h-fit
             bg-gradient-to-b
-            from-pink-400
+            from-sky-400
             p-6
             `,
         className
