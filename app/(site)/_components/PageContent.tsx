@@ -27,7 +27,6 @@ export function PageContent({ songs }: PageContentProps) {
     mt-4
     "
     >
-    
       {songs.map((item) => (
             <SongItem 
             key={item.id}
