@@ -14,6 +14,7 @@ const font = Figtree({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Jelly Chen's Birthday",
   description: "Always love Jelly~",
+  keywords: "Jelly Chen, birthday, celebration, party",
 };
 
 // we don't want it to cache,we will update everytime 
